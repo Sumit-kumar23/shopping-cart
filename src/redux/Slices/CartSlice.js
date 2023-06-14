@@ -4,8 +4,13 @@ export const CartSlice=createSlice({
     name:"cart",
     initialState:[],
     reducers: {
-        add: ()=>{},
-        remove: ()=>{},
+        add: (state, action)=>{
+            state.push(action.payload);
+
+        },
+        remove: (state, action)=>{
+            state.filter((item)=> item.id !==action.payload) // retain only those items whose item id!=action.payload
+        },
     }
 })
 
